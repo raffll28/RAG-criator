@@ -116,13 +116,15 @@ pytest tests/ --cov=. --cov-report=html
 - [x] Estrutura do projeto
 - [x] **Módulo 1 - Ingestão** (Readers implementados)
   - [x] BaseReader (classe abstrata)
-  - [x] TextReader (.txt, .md, .log, .csv)
+  - [x] TextReader (.txt, .md, .log)
+  - [x] PDFReader (.pdf)
+  - [x] DOCXReader (.docx)
+  - [x] CSVReader (.csv, .tsv)
   - [x] Factory Pattern para seleção automática
   - [x] Sistema de logging completo
-  - [x] 22 testes (100% passando)
-  - [ ] PDFReader
-  - [ ] DOCXReader
-  - [ ] CodeReader
+  - [x] 46 testes (100% passando)
+  - [ ] ImageReader (OCR)
+  - [ ] CodeReader (syntax highlighting)
   - [ ] Chunkers (divisão de documentos)
 - [ ] Módulo 2 - Benchmark
 - [ ] Módulo 3 - RAG

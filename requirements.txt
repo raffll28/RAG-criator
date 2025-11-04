@@ -11,6 +11,7 @@ lxml==5.1.0
 markdown==3.5.2
 chardet==5.2.0
 langchain-text-splitters==0.0.1
+openpyxl==3.1.2
 
 # Módulo 2 - Benchmark
 sentence-transformers==2.3.1

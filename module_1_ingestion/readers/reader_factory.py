@@ -10,6 +10,9 @@ from loguru import logger
 
 from .base_reader import BaseReader, Document
 from .text_reader import TextReader
+from .pdf_reader import PDFReader
+from .docx_reader import DOCXReader
+from .csv_reader import CSVReader
 
 
 class ReaderFactory:
@@ -26,6 +29,9 @@ class ReaderFactory:
         
         # Registra readers padrão
         self.register_reader(TextReader)
+        self.register_reader(PDFReader)
+        self.register_reader(DOCXReader)
+        self.register_reader(CSVReader)
     
     def register_reader(self, reader_class: Type[BaseReader]) -> None:
         """

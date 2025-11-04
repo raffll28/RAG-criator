@@ -57,10 +57,11 @@ class TestReaderFactory:
     
     def test_get_reader_unsupported(self):
         """Testa obtenção de reader para tipo não suportado."""
-        reader = self.factory.get_reader("test.pdf")
+        # PDF e DOCX agora são suportados, então testamos outro tipo
+        reader = self.factory.get_reader("test.unknown")
         assert reader is None
         
-        reader = self.factory.get_reader("test.unknown")
+        reader = self.factory.get_reader("test.xyz")
         assert reader is None
     
     def test_can_read(self):
@@ -68,8 +69,9 @@ class TestReaderFactory:
         assert self.factory.can_read("test.txt") is True
         assert self.factory.can_read("test.md") is True
         assert self.factory.can_read("test.log") is True
-        assert self.factory.can_read("test.pdf") is False
-        assert self.factory.can_read("test.docx") is False
+        assert self.factory.can_read("test.pdf") is True  # Agora suportado
+        assert self.factory.can_read("test.docx") is True  # Agora suportado
+        assert self.factory.can_read("test.xyz") is False  # Não suportado
     
     def test_read_file_via_factory(self):
         """Testa leitura de arquivo através da factory."""
@@ -87,7 +89,7 @@ class TestReaderFactory:
     
     def test_read_unsupported_file(self):
         """Testa leitura de arquivo não suportado."""
-        test_file = Path(self.temp_dir) / "test.pdf"
+        test_file = Path(self.temp_dir) / "test.unknown"
         test_file.touch()
         
         with pytest.raises(ValueError, match="No reader available"):

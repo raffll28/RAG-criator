@@ -12,19 +12,25 @@ Usage:
     doc = factory.read("data/sample.txt")
     
     # Usando reader específico
-    from module_1_ingestion.readers import TextReader
+    from module_1_ingestion.readers import TextReader, PDFReader, DOCXReader
     reader = TextReader()
     doc = reader.read("data/sample.txt")
 """
 
 from .base_reader import BaseReader, Document
 from .text_reader import TextReader
+from .pdf_reader import PDFReader
+from .docx_reader import DOCXReader
+from .csv_reader import CSVReader
 from .reader_factory import ReaderFactory, get_factory, read_file
 
 __all__ = [
     "BaseReader",
     "Document",
     "TextReader",
+    "PDFReader",
+    "DOCXReader",
+    "CSVReader",
     "ReaderFactory",
     "get_factory",
     "read_file",

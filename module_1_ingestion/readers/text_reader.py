@@ -40,7 +40,7 @@ class TextReader(BaseReader):
         super().__init__(encoding)
         self.auto_detect_encoding = auto_detect_encoding
         self.detection_sample_size = detection_sample_size
-        self.supported_extensions = [".txt", ".md", ".log", ".csv", ".text"]
+        self.supported_extensions = [".txt", ".md", ".log", ".text"]
     
     def read(self, file_path: Union[Path, str]) -> Document:
         """
