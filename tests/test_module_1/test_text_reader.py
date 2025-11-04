@@ -68,9 +68,15 @@ class TestTextReader:
         test_file = Path(self.temp_dir) / "empty.txt"
         test_file.touch()
         
-        # Deve lançar erro pois conteúdo está vazio
-        with pytest.raises(ValueError, match="content cannot be empty"):
-            self.reader.read(test_file)
+        # Agora permite arquivos vazios
+        document = self.reader.read(test_file)
+        
+        assert isinstance(document, Document)
+        assert document.content == ""
+        assert document.metadata["is_empty"] is True
+        assert document.metadata["lines_count"] == 0
+        assert document.metadata["word_count"] == 0
+        assert document.allow_empty is True
     
     def test_read_nonexistent_file(self):
         """Testa leitura de arquivo que não existe."""
