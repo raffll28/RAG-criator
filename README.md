@@ -78,16 +78,60 @@ pip install -r requirements.txt
 docker-compose up -d
 ```
 
+## 🎯 Uso Rápido
+
+```python
+# Ler arquivos automaticamente
+from module_1_ingestion.readers import read_file
+
+document = read_file("data/sample.txt")
+print(f"Conteúdo: {document.content}")
+print(f"Linhas: {document.metadata['lines_count']}")
+print(f"Palavras: {document.metadata['word_count']}")
+```
+
+Veja mais exemplos em [`examples/example_readers.py`](examples/example_readers.py)
+
+## 📚 Documentação
+
+- **[Módulo 1 - Ingestão de Dados](docs/MODULE_1_INGESTION.md)** - Guia completo dos readers
+- **[Design Patterns e OO](docs/DESIGN_PATTERNS.md)** - Arquitetura e padrões utilizados
+- **[Melhorias Implementadas](docs/IMPROVEMENTS.md)** - Changelog detalhado
+
+## 🧪 Testes
+
+```bash
+# Executar todos os testes
+pytest tests/ -v
+
+# Executar testes de um módulo específico
+pytest tests/test_module_1/ -v
+
+# Com cobertura
+pytest tests/ --cov=. --cov-report=html
+```
+
 ## 📝 Status do Desenvolvimento
 
 - [x] Estrutura do projeto
-- [ ] Módulo 1 - Ingestão
+- [x] **Módulo 1 - Ingestão** (Readers implementados)
+  - [x] BaseReader (classe abstrata)
+  - [x] TextReader (.txt, .md, .log, .csv)
+  - [x] Factory Pattern para seleção automática
+  - [x] Sistema de logging completo
+  - [x] 22 testes (100% passando)
+  - [ ] PDFReader
+  - [ ] DOCXReader
+  - [ ] CodeReader
+  - [ ] Chunkers (divisão de documentos)
 - [ ] Módulo 2 - Benchmark
 - [ ] Módulo 3 - RAG
 
 ## 🤝 Contribuindo
 
 Este é um projeto em desenvolvimento ativo. Contribuições são bem-vindas!
+
+Para adicionar um novo reader, consulte [docs/MODULE_1_INGESTION.md](docs/MODULE_1_INGESTION.md#-adicionando-novos-readers)
 
 ## 📄 Licença
 
