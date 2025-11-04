@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: rag_qdrant
+    ports:
+      - "6333:6333"  # REST API
+      - "6334:6334"  # gRPC
+    volumes:
+      - ./data/vector_db:/qdrant/storage
+    environment:
+      - QDRANT_LOG_LEVEL=INFO
+    restart: unless-stopped
+

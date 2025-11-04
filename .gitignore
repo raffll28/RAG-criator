@@ -1,0 +1,97 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Dados - não versionar dados processados
+data/raw/*
+data/processed/*
+data/vector_db/*
+data/benchmark_results/*
+!data/**/.gitkeep
+
+# Modelos - cache de sentence-transformers
+models/*
+!models/.gitkeep
+
+# Benchmark Reports
+module_2_benchmark/reports/*
+!module_2_benchmark/reports/.gitkeep
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Qdrant
+qdrant_data/
+qdrant_storage/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Large files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
